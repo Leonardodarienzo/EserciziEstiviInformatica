@@ -1,7 +1,12 @@
 from flask import Flask, render_template
 from geopandas import GeoDataFrame
 from shapely.geometry import Point
+import pandas as pd
 app = Flask(__name__)
+
+def dataframe_file():
+    df = pandas.read_excel('GdL_GV_2021.xlsx')
+    return df
 
 @app.route('/', methods=['GET'])
 def homepage():
@@ -10,6 +15,8 @@ def homepage():
 
 @app.route('/Scelta1', methods=['GET'])
 def Scelta1():
+     df.bool = (df=='entro i limiti')
+     print(df_bool.sum().sum())
      return render_template("home.html")
 
 @app.route('/Scelta2', methods=['GET'])
