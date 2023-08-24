@@ -5,38 +5,63 @@
 
     <h1>Sito che si occupa del monitoraggio delle acque dei mari</h1>
     
-    <form action="/homepage" method = 'GET'>
-        <p>Seleziona la scelta da eseguire</p>
-        <input type = 'radio' id = 'Scelta 1' name = 'Menù' value = 'N_Luoghi'>
-        <label for="N_Luoghi">Numero luoghi per ogni giudizio</label>
+        <form action = "/Scelta1" method = "GET">
+            <p>Seleziona la scelta da eseguire</p>
+            <input type = 'radio' id = 'Scelta 1' name = 'Menù' value = 'N_Luoghi'>
+            <label for="N_Luoghi">Numero luoghi per ogni giudizio</label>
+            <input type="submit" value='Invia scelta'>
+        </form>
         <br>
+        <form action = "/Scelta2" method = "GET">
         <input type = 'radio' id = 'Scelta 2' name = 'Menù' value = 'N_Luoghi_perc'>
         <label for="N_Luoghi_perc">Numero luoghi per ogni giudizio in percentuale</label>
+        <input type="submit" value='Invia scelta'>     
+        </form>
         <br>
+        <form action = "/Scelta3" method = "GET"></form>
         <input type = 'radio' id = 'Scelta 3' name = 'Menù' value = 'N_Luoghi_grafico'>
         <label for="N_Luoghi_grafico">Diagramma a torta luoghi per ogni giudizio</label>
+        <input type="submit" value='Invia scelta'>
+        </form>
         <br>
+        <form action = "/Scelta4" method = "GET"></form>
         <input type = 'radio' id = 'Scelta 4' name = 'Menù' value = 'Giudizi_spiaggia'>
         <label for="Giudizi_spiaggia">Giudizi per ogni spiaggia</label>
+        <input type="submit" value='Invia scelta'> 
+        </form>
         <br>
+        <form action = "/Scelta5" method = "GET"></form>
         <input type = 'radio' id = 'Scelta 5' name = 'Menù' value = 'Mappa_Lombardia'>
         <label for="Mappa_Lombardia">Mappa della Lombardia con indicazione dei punti monitorati</label>
+        <input type="submit" value='Invia scelta'> 
+        </form>
         <br>
+        <form action = "/Scelta6" method = "GET"></form>
         <input type = 'radio' id = 'Scelta 6' name = 'Menù' value = 'Mappa_Lombardia_popup'>
         <label for="Mappa_Lombardia_popup">Mappa della Lombardia con indicazione dei punti monitorati e pop up con giudizi</label>
+        <input type="submit" value='Invia scelta'> 
+        </form>
         <br>
+        <form action = "/Scelta7" method = "GET"></form>
         <input type = 'radio' id = 'Scelta 7' name = 'Menù' value = 'Mappa_scelta'>
         <label for="Mappa_scelta">Mappa regione a scelta con indicazione dei punti monitorati e pop up con giudizi</label>
+        <input type="submit" value='Invia scelta'>
+        </form>
         <br>
+        <form action = "/Scelta8" method = "GET"></form>
         <input type = 'radio' id = 'Scelta 8' name = 'Menù' value = 'Mappa_Lago'>
         <label for="Mappa_Lago">Mappa lago a scelta con punti monitorati</label>
+        <input type="submit" value='Invia scelta'>
+        </form>
         <br>
+        <form action = "/Scelta9" method = "GET"></form>
         <input type = 'radio' id = 'Scelta 9' name = 'Menù' value = 'Mappa_Province'>
         <label for="Mappa_Province">Mappa provincie colorate in base al numero dei punti monitorati</label>
-        <br>
         <input type="submit" value='Invia scelta'>
+        </form>
+        <br>
+        
 
-    </form>
 
 </body>
 </html>

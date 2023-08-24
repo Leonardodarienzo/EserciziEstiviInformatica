@@ -13,9 +13,10 @@ def homepage():
 @app.route('/Scelta1', methods=['GET'])
 def Scelta1():
      df = pd.read_excel('GdL_GV_2021.xlsx')
-     df_bool = (df=='entro i limiti')
-     print(df_bool.values.sum())
-     return render_template("scelta1.html")
+     df_giudizio = df.groupby("giudizio")[["localita"]].count().reset_index()
+     giudizio = list(df_giudizio["giudizio"])
+     numero = list(df_giudizio["localita"])
+     return render_template("scelta1.html", numero=numero, prova = df_giudizio.to_html())
 
 @app.route('/Scelta2', methods=['GET'])
 def Scelta2():
