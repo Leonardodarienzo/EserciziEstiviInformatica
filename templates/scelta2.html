@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
+    <title>Conteggio Giudizi Inquinamento in Percentuale</title>
 </head>
 <body>
-    {{prova|safe}}
+    <h1>Conteggio Giudizi Inquinamento in Percentuale</h1>
+    <p>Percentuale di luoghi per ciascun tipo di giudizio:</p>
+    <ul>
+        {% for idx, tipo in enumerate(giudizio) %}
+            <li>{{ tipo }}: {{ percentuali[idx] | round(2) }}%</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
