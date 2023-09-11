@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conteggio Giudizi Inquinamento in Percentuale</title>
+    <title>Giudizi Inquinamento in Percentuale</title>
 </head>
 <body>
-    <h1>Conteggio Giudizi Inquinamento in Percentuale</h1>
-    <p>Percentuale di luoghi per ciascun tipo di giudizio:</p>
+    <h1>Giudizi Inquinamento in Percentuale</h1>
+    <p>Percentuale di luoghi per ogni tipo di giudizio:</p>
     <ul>
-        {% for idx, tipo in enumerate(giudizio) %}
-            <li>{{ tipo }}: {{ percentuali[idx] | round(2) }}%</li>
+        {% for giudizio, percentuale in giudizi.items() %}
+            <li>{{ giudizio }}: {{ "%.2f"|format(percentuale) }}%</li>
         {% endfor %}
-    </ul>
 </body>
 </html>
+
