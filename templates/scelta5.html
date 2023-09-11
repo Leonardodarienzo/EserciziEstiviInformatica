@@ -23,20 +23,13 @@
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
             }).addTo(mappa);
-            
-            var gdf_totale = {{ risultato_totale.to_json()|tojson|safe }};
-            for (var i = 0; i < gdf_totale.features.length; i++) {
-                var feature = gdf_totale.features[i];
-                var lat = feature.geometry.coordinates[1];
-                var lon = feature.geometry.coordinates[0];
-                var localita = feature.properties.localita;
-                
-                L.marker([lat, lon]).addTo(mappa)
-                    .bindPopup(localita);
-            }
+
+            var mappa_html = "{{ mappa_html|tojson|safe }}";
+
+
+            document.getElementById('mappa-container').innerHTML = mappa_html;
         }
         
-        // Inizializza la mappa quando la pagina è pronta
         document.addEventListener("DOMContentLoaded", function () {
             initMap();
         });

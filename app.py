@@ -63,22 +63,22 @@ def Scelta4():
 
 @app.route('/Scelta5', methods=['GET'])
 def Scelta5():
-    df1 = pd.read_excel('GdL_GV_2021.xlsx')
-    localita_con_spiaggia = df1[df1['localita'].str.lower().str.contains('spiaggia', na=False, case=False)]
-    geometry1 = [Point(xy) for xy in zip(localita_con_spiaggia['longitude'], localita_con_spiaggia['latitude'])]
-    gdf1 = gpd.GeoDataFrame(localita_con_spiaggia, geometry=geometry1)
-    gdf1.crs = 'EPSG:4326'
+    df = pd.read_excel('GdL_GV_2021.xlsx')
 
-    gdf_totale = gpd.GeoDataFrame(pd.concat([gdf1, gdf2, gdf3], ignore_index=True), crs=gdf1.crs)
-    
+    localita_con_spiaggia = df[df['localita'].str.contains('spiaggia', case=False, na=False)]
+
+    geometry = [Point(xy) for xy in zip(localita_con_spiaggia['longitude'], localita_con_spiaggia['latitude'])]
+    gdf = gpd.GeoDataFrame(localita_con_spiaggia, geometry=geometry)
+    gdf.crs = 'EPSG:4326'
+
     mappa = folium.Map(location=[45.706, 9.742], zoom_start=8)
-    
-    for idx, row in gdf_totale.iterrows():
+
+    for idx, row in gdf.iterrows():
         folium.Marker([row['geometry'].y, row['geometry'].x], tooltip=row['localita']).add_to(mappa)
-    
+
     mappa_html = mappa.get_root().render()
-    
-    return render_template("scelta5.html", risultato_totale=gdf_totale, mappa_html=mappa_html)
+
+    return render_template("scelta5.html", mappa_html=mappa_html)
 
 
 
