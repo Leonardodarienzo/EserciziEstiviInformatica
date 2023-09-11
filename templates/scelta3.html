@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grafico a torta della percentuale dei luoghi con i vari inquinamenti</title>
+    <title>Grafico a Torta dell'Inquinamento</title>
 </head>
 <body>
-    <h1>Giudizi Inquinamento in Percentuale</h1>
-    <p>Percentuale di luoghi per ogni tipo di giudizio:</p>
-    <ul>
-        {% for giudizio, percentuale in giudizi.items() %}
-            <li>{{ giudizio }}: {{ "%.2f"|format(percentuale) }}%</li>
-        {% endfor %}
-
-    <img src = "static/images/graf3.png">
+    <h1>Grafico a Torta dell'Inquinamento</h1>
+    
+    <img src="static/images/graf3.png" alt="Grafico a Torta dell'Inquinamento">
 </body>
 </html>
+

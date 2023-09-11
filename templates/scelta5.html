@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mappa dei Punti Monitorati in Lombardia</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #mappa-container {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mappa dei Punti Monitorati in Lombardia</h1>
+    
+    <div id="mappa-container"></div>
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <script>
+        function initMap() {
+            var mappa = L.map('mappa-container').setView([45.706, 9.742], 8);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(mappa);
+            
+            var gdf_totale = {{ risultato_totale.to_json()|tojson|safe }};
+            for (var i = 0; i < gdf_totale.features.length; i++) {
+                var feature = gdf_totale.features[i];
+                var lat = feature.geometry.coordinates[1];
+                var lon = feature.geometry.coordinates[0];
+                var localita = feature.properties.localita;
+                
+                L.marker([lat, lon]).addTo(mappa)
+                    .bindPopup(localita);
+            }
+        }
+        
+        // Inizializza la mappa quando la pagina è pronta
+        document.addEventListener("DOMContentLoaded", function () {
+            initMap();
+        });
+    </script>
+</body>
+</html>
