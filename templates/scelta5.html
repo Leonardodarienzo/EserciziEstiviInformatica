@@ -12,27 +12,8 @@
 <body>
     <h1>Mappa dei Punti Monitorati in Lombardia</h1>
     
-    <div id="mappa-container"></div>
+    <div id="mappa-container">{{ mappa_html|safe }}</div>
     
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    
-    <script>
-        function initMap() {
-            var mappa = L.map('mappa-container').setView([45.706, 9.742], 8);
-            
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-            }).addTo(mappa);
-
-            var mappa_html = "{{ mappa_html|tojson|safe }}";
-
-
-            document.getElementById('mappa-container').innerHTML = mappa_html;
-        }
-        
-        document.addEventListener("DOMContentLoaded", function () {
-            initMap();
-        });
-    </script>
 </body>
 </html>

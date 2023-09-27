@@ -1,10 +1,10 @@
 from flask import Flask, render_template
-from shapely.geometry import Point
+import shapely.geometry 
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import folium
-import pandas as gpd
+import geopandas as gpd
 app = Flask(__name__)
 
 
@@ -64,12 +64,9 @@ def Scelta4():
 @app.route('/Scelta5', methods=['GET'])
 def Scelta5():
     df = pd.read_excel('GdL_GV_2021.xlsx')
-
-    localita_con_spiaggia = df[df['localita'].str.contains('spiaggia', case=False, na=False)]
-
-    geometry = [Point(xy) for xy in zip(localita_con_spiaggia['longitude'], localita_con_spiaggia['latitude'])]
-    gdf = gpd.GeoDataFrame(localita_con_spiaggia, geometry=geometry)
-    gdf.crs = 'EPSG:4326'
+    gdf = gpd.GeoDataFrame(df.drop(['longitude', 'latitude'], axis=1),
+          crs='EPSG:4326',
+          geometry=df.apply(lambda row: shapely.geometry.Point((row.longitude, row.latitude)), axis=1))
 
     mappa = folium.Map(location=[45.706, 9.742], zoom_start=8)
 
@@ -78,7 +75,7 @@ def Scelta5():
 
     mappa_html = mappa.get_root().render()
 
-    return render_template("scelta5.html", mappa_html=mappa_html)
+    return render_template("scelta5.html", mappa_html=mappa_html, gdf=gdf)
 
 
 
