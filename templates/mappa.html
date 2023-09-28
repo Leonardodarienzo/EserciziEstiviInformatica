@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4a20305b0aea4d08f297d5d3b77cf363 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4a20305b0aea4d08f297d5d3b77cf363" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4a20305b0aea4d08f297d5d3b77cf363 = L.map(
+                "map_4a20305b0aea4d08f297d5d3b77cf363",
+                {
+                    center: [45.4, 9.2],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c1cb84ed8ca0409f77755bc45b10ba4c = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+            var marker_9b6925d41638f41301c03bd953d5a036 = L.marker(
+                [45.07507192269201, 9.911986180931795],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_b0e6dc4dbc4815300261130a79b526b9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b76d8001a765ab7d14736cf96a7ddc39 = $(`<div id="html_b76d8001a765ab7d14736cf96a7ddc39" style="width: 100.0%; height: 100.0%;">Giudizio: Fortemente Inquinato</div>`)[0];
+                popup_b0e6dc4dbc4815300261130a79b526b9.setContent(html_b76d8001a765ab7d14736cf96a7ddc39);
+            
+        
+
+        marker_9b6925d41638f41301c03bd953d5a036.bindPopup(popup_b0e6dc4dbc4815300261130a79b526b9)
+        ;
+
+        
+    
+    
+            var marker_0429bd7175c5d46ec9d7832e4c2629db = L.marker(
+                [45.64483225717782, 9.415962006353633],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_8927e035d517550d8db82b3f76177b64 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_63a71437ba63ab4c1ad53468584c8711 = $(`<div id="html_63a71437ba63ab4c1ad53468584c8711" style="width: 100.0%; height: 100.0%;">Giudizio: Entro i Limiti</div>`)[0];
+                popup_8927e035d517550d8db82b3f76177b64.setContent(html_63a71437ba63ab4c1ad53468584c8711);
+            
+        
+
+        marker_0429bd7175c5d46ec9d7832e4c2629db.bindPopup(popup_8927e035d517550d8db82b3f76177b64)
+        ;
+
+        
+    
+    
+            var marker_72134920568c6e13c80e0236fab243d6 = L.marker(
+                [45.49487716336766, 9.299331875793543],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_c7ac1ef93d11ae956b3c8cce9d522777 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4028cbd064f18dc44df4ee84b852def7 = $(`<div id="html_4028cbd064f18dc44df4ee84b852def7" style="width: 100.0%; height: 100.0%;">Giudizio: Fortemente Inquinato</div>`)[0];
+                popup_c7ac1ef93d11ae956b3c8cce9d522777.setContent(html_4028cbd064f18dc44df4ee84b852def7);
+            
+        
+
+        marker_72134920568c6e13c80e0236fab243d6.bindPopup(popup_c7ac1ef93d11ae956b3c8cce9d522777)
+        ;
+
+        
+    
+    
+            var marker_bd127b0631e7525fe96333131bed1eed = L.marker(
+                [45.66747830160168, 9.740124810918127],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_1be78a217ca7870534009d2e600de11b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_64fd68a1ea84f5f21d9c51a38026bdfe = $(`<div id="html_64fd68a1ea84f5f21d9c51a38026bdfe" style="width: 100.0%; height: 100.0%;">Giudizio: Fortemente Inquinato</div>`)[0];
+                popup_1be78a217ca7870534009d2e600de11b.setContent(html_64fd68a1ea84f5f21d9c51a38026bdfe);
+            
+        
+
+        marker_bd127b0631e7525fe96333131bed1eed.bindPopup(popup_1be78a217ca7870534009d2e600de11b)
+        ;
+
+        
+    
+    
+            var marker_45a2e2e1e26f6775acfe8f23ba3bef37 = L.marker(
+                [45.372776120370006, 9.371971886358077],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_3aebe676b04790307ce9f4ec4d817212 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0f1442b626b173e1c3e89b7c7c42d704 = $(`<div id="html_0f1442b626b173e1c3e89b7c7c42d704" style="width: 100.0%; height: 100.0%;">Giudizio: Entro i Limiti</div>`)[0];
+                popup_3aebe676b04790307ce9f4ec4d817212.setContent(html_0f1442b626b173e1c3e89b7c7c42d704);
+            
+        
+
+        marker_45a2e2e1e26f6775acfe8f23ba3bef37.bindPopup(popup_3aebe676b04790307ce9f4ec4d817212)
+        ;
+
+        
+    
+    
+            var marker_83622abb981978d640f063cb56fb0c96 = L.marker(
+                [45.388189582734924, 9.884643205812536],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_ad69b8e408002df20ff6c22b69170c98 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_213a59e48c28bc382c58604960a5cdc4 = $(`<div id="html_213a59e48c28bc382c58604960a5cdc4" style="width: 100.0%; height: 100.0%;">Giudizio: Fortemente Inquinato</div>`)[0];
+                popup_ad69b8e408002df20ff6c22b69170c98.setContent(html_213a59e48c28bc382c58604960a5cdc4);
+            
+        
+
+        marker_83622abb981978d640f063cb56fb0c96.bindPopup(popup_ad69b8e408002df20ff6c22b69170c98)
+        ;
+
+        
+    
+    
+            var marker_961162007e1d85e39094c00ea2b5cad0 = L.marker(
+                [45.28526457815219, 9.661525368446487],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_fc75c6df92cc694991438631db178291 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e435eb5a0e523e1c3460f784b030be1a = $(`<div id="html_e435eb5a0e523e1c3460f784b030be1a" style="width: 100.0%; height: 100.0%;">Giudizio: Inquinato</div>`)[0];
+                popup_fc75c6df92cc694991438631db178291.setContent(html_e435eb5a0e523e1c3460f784b030be1a);
+            
+        
+
+        marker_961162007e1d85e39094c00ea2b5cad0.bindPopup(popup_fc75c6df92cc694991438631db178291)
+        ;
+
+        
+    
+    
+            var marker_b7558c856138e3ea23630ec59d1ca2dd = L.marker(
+                [45.256942393788016, 9.059211932850655],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_53abb108f36ab7c57004d3b7f7638e77 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5c38d86aef6eaf60a57f695f4ed11d97 = $(`<div id="html_5c38d86aef6eaf60a57f695f4ed11d97" style="width: 100.0%; height: 100.0%;">Giudizio: Inquinato</div>`)[0];
+                popup_53abb108f36ab7c57004d3b7f7638e77.setContent(html_5c38d86aef6eaf60a57f695f4ed11d97);
+            
+        
+
+        marker_b7558c856138e3ea23630ec59d1ca2dd.bindPopup(popup_53abb108f36ab7c57004d3b7f7638e77)
+        ;
+
+        
+    
+    
+            var marker_756330ab674ac40711170ee4a10dee72 = L.marker(
+                [45.476444723097735, 9.23676305651349],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_afa36a3e193efdd3b4a26a9a3eafb91d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7f780ad3456bd286330354aee3b586b2 = $(`<div id="html_7f780ad3456bd286330354aee3b586b2" style="width: 100.0%; height: 100.0%;">Giudizio: Entro i Limiti</div>`)[0];
+                popup_afa36a3e193efdd3b4a26a9a3eafb91d.setContent(html_7f780ad3456bd286330354aee3b586b2);
+            
+        
+
+        marker_756330ab674ac40711170ee4a10dee72.bindPopup(popup_afa36a3e193efdd3b4a26a9a3eafb91d)
+        ;
+
+        
+    
+    
+            var marker_2ed7711a6117ffcd3de22b636af1a215 = L.marker(
+                [45.814380973476915, 9.857749916310713],
+                {}
+            ).addTo(map_4a20305b0aea4d08f297d5d3b77cf363);
+        
+    
+        var popup_8c111166e9168257072e7489746da310 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4a6e24e311a4367ed8cd9331dc6ec15b = $(`<div id="html_4a6e24e311a4367ed8cd9331dc6ec15b" style="width: 100.0%; height: 100.0%;">Giudizio: Inquinato</div>`)[0];
+                popup_8c111166e9168257072e7489746da310.setContent(html_4a6e24e311a4367ed8cd9331dc6ec15b);
+            
+        
+
+        marker_2ed7711a6117ffcd3de22b636af1a215.bindPopup(popup_8c111166e9168257072e7489746da310)
+        ;
+
+        
+    
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mappa dei Punti Monitorati</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map-container {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mappa dei Punti Monitorati</h1>
+    
+    <div id="map-container"></div>
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <script>
+        var map = L.map('map-container').setView([45.4, 9.2], 8);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Carica i dati dei punti monitorati dalla variabile Python 'dati_punti'
+        var dati_punti = { dati_punti,tojson,safe };
+        
+        dati_punti.forEach(function (punto) {
+            L.marker([punto.Latitude, punto.Longitude]).addTo(map)
+                .bindPopup('<strong>Giudizio:</strong> ' + punto.Giudizio);
+        });
+    </script>
+</body>
+</html>
+
+
+

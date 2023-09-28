@@ -1,10 +1,12 @@
 from flask import Flask, render_template
-import shapely.geometry 
+from shapely.geometry import Point
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import folium
 import geopandas as gpd
+import random
+
 app = Flask(__name__)
 
 
@@ -80,9 +82,27 @@ def Scelta5():
 
 
 @app.route('/Scelta6', methods=['GET'])
-def Scelta6():
-     return render_template("home.html")
+def scelta6():
+    df = pd.read_excel('GdL_GV_2021.xlsx')
+    num_punti = 10  
+    punti = []
 
+    for _ in range(num_punti):
+        latitude = random.uniform(45.0, 46.0)
+        longitude = random.uniform(9.0, 10.0)
+        giudizio = random.choice(['Entro i Limiti', 'Inquinato', 'Fortemente Inquinato'])
+        punti.append({'Latitude': latitude, 'Longitude': longitude, 'Giudizio': giudizio})
+
+    mappa = folium.Map(location=[45.4, 9.2], zoom_start=8)
+
+    for punto in punti:
+        folium.Marker(
+            location=[punto['Latitude'], punto['Longitude']],
+            popup='Giudizio: ' + punto['Giudizio']
+        ).add_to(mappa)
+    mappa.save('templates/mappa.html')
+
+    return render_template('mappa.html')
 
 
 @app.route('/Scelta7', methods=['GET'])
