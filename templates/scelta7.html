@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mappa Regionale</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #mappa-container {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mappa della Regione</h1>
+    
+    <div id="mappa-container"></div>
+    
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+
+    <script>
+        function initMap() {
+            var mappa = L.map('mappa-container').setView([45.7, 9.2], 10); 
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(mappa);
+            
+            var dati_punti = { dati_punti,tojson,safe };
+            
+            for (var i = 0; i < dati_punti.length; i++) {
+                var punto = dati_punti[i];
+                var lat = punto['Latitude'];
+                var lon = punto['Longitude'];
+                var giudizio = punto['Giudizio'];
+
+                L.marker([lat, lon]).addTo(mappa)
+                    .bindPopup('Giudizio: ' + giudizio)
+                    .openPopup();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            initMap();
+        });
+    </script>
+</body>
+</html>

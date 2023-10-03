@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from shapely.geometry import Point
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,6 +6,7 @@ import os
 import folium
 import geopandas as gpd
 import random
+
 
 app = Flask(__name__)
 
@@ -105,9 +106,27 @@ def scelta6():
     return render_template('mappa.html')
 
 
-@app.route('/Scelta7', methods=['GET'])
+@app.route('/Scelta7', methods=['GET', 'POST'])
 def Scelta7():
-     return render_template("home.html")
+     if request.method == 'POST':
+        nome_regione = request.form['nome_regione']
+        punti_monitorati = pd.DataFrame({
+            'Latitude': [45.7, 45.71, 45.72],
+            'Longitude': [9.2, 9.21, 9.22],
+            'Giudizio': ['Entro i Limiti', 'Inquinato', 'Fortemente Inquinato']
+        })
+
+     mappa = folium.Map(location=[45.7, 9.2], zoom_start=10)
+        
+     for _, punto in punti_monitorati.iterrows():
+            folium.Marker(
+                location=[punto['Latitude'], punto['Longitude']],
+                popup='Giudizio: ' + punto['Giudizio']
+            ).add_to(mappa)
+        
+     mappa.save('templates/mappa_regionale.html')
+
+     return render_template("mappa_regionale.html")
 
 
 @app.route('/Scelta8', methods=['GET'])
