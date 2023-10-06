@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import shapely
 from shapely.geometry import Point
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -131,9 +132,32 @@ def Scelta7():
 
     return render_template('scelta7.html')
 
-@app.route('/Scelta8', methods=['GET'])
+@app.route('/Scelta8', methods=['GET', 'POST'])
 def Scelta8():
-     return render_template("home.html")
+    if request.method == 'POST':
+        nome_lago = request.form['nome_lago'] 
+
+        punti_monitorati2 = pd.DataFrame({
+            'Latitude': [45.57, 45.96, 46.01],
+            'Longitude': [10, 8.65, 9.25],
+            'Giudizio': ['Entro i Limiti', 'Inquinato', 'Fortemente Inquinato']
+        })
+
+        mappa = folium.Map(location=[45.7, 9.2], zoom_start=10)
+
+        
+        for _, punto in punti_monitorati2.iterrows():
+            folium.Marker(
+                location=[punto['Latitude'], punto['Longitude']],
+                popup='Giudizio: ' + punto['Giudizio']
+            ).add_to(mappa)
+
+        mappa.save('templates/mappa_lago.html')
+
+        return render_template('mappa_lago.html')
+    
+    return render_template('scelta8.html')
+
 
 
 @app.route('/Scelta9', methods=['GET'])
